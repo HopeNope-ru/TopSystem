@@ -21,4 +21,6 @@ namespace TopSystem
   private:
 	GLuint _vertexArray;
   };
+
+  using VAO = VertexArrayObject;
 }

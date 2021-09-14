@@ -15,7 +15,7 @@ namespace TopSystem
 	void   UnBind() const { glBindBuffer(_targetBuffer, _buffer); }
 	GLuint GetBuffer()	  { return _buffer; }
 
-	const vector<GLfloat>& GetContainer() { return _container; }
+	const vector<GLfloat>& GetContainer() const { return _container; }
 
   private:
 	GLuint			_buffer;

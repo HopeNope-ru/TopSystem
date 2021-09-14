@@ -13,12 +13,16 @@ namespace TopSystem
 	vbo.Bind();
 	ebo.Bind();
 
-	// add color dimension
-	GLsizei stride = vertexDimension * sizeof(GLfloat);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (void*)0);
+	GLsizei stride = (vertexDimension + colorDimension) * sizeof(GLfloat);
+	glVertexAttribPointer(0, vertexDimension, GL_FLOAT, GL_FALSE, stride, (void*)0);
 	glEnableVertexAttribArray(0);
-	// Add color!!!!!!!
+	
+	GLsizei offset = sizeof(GLfloat) * vertexDimension;
+	glVertexAttribPointer(1, colorDimension, GL_FLOAT, GL_FALSE, stride, (void*)offset);
+	glEnableVertexAttribArray(1);
 
 	UnBind();
+	vbo.UnBind();
+	ebo.UnBind();
   }
 }

@@ -14,7 +14,7 @@ namespace TopSystem
 	void Bind()	  const { glBindBuffer(_targetBuffer, _buffer); }
 	void UnBind() const { glBindBuffer(_targetBuffer, 0); }
 
-	const vector<GLint>& GetIndices() { return _indices; }
+	const vector<GLint>& GetIndices() const { return _indices; }
 
   private:
 	GLuint		  _buffer;
