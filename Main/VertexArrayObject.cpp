@@ -3,10 +3,15 @@
 
 namespace TopSystem 
 {
-  VertexArrayObject::VertexArrayObject(GLuint vertexDimension, GLuint colorDimension) 
+  VertexArrayObject::VertexArrayObject(GLuint	  vertexDimension, 
+									   GLuint	  colorDimension, 
+									   const VBO& vbo, 
+									   const EBO& ebo) 
   {
 	glGenVertexArrays(1, &_vertexArray);
 	Bind();
+	vbo.Bind();
+	ebo.Bind();
 
 	// add color dimension
 	GLsizei stride = vertexDimension * sizeof(GLfloat);

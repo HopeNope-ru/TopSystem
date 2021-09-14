@@ -9,7 +9,10 @@ namespace TopSystem
   class VertexArrayObject
   {
   public:
-	VertexArrayObject(GLuint vertexDimension, GLuint colorDimension);
+	VertexArrayObject(GLuint	 vertexDimension,
+					  GLuint	 colorDimension,
+					  const VBO& vbo,
+					  const EBO& ebo);
 
 	void   Bind()			{ glBindVertexArray(_vertexArray); }
 	void   UnBind()			{ glBindVertexArray(0); }
