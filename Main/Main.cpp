@@ -7,6 +7,7 @@
 #include "VertexArrayObject.h"
 #include "VertexBufferObject.h"
 #include "ElemetBufferObject.h"
+#include "Rectangle.h"
 
 using namespace TopSystem;
 
@@ -33,12 +34,8 @@ int main()
     1, 2, 3
   };
 
-  VBO vbo(container);
-  EBO ebo(indices);
-  VAO vao(3, 3, vbo, ebo);
-
-
   Shader shader("Shaders/VertexShader.txt", "Shaders/FragmentShader.txt");
+  Rectangle rectangle(3, 3, shader, container, indices);
 
   while (!glfwWindowShouldClose(window))
   {
@@ -47,9 +44,7 @@ int main()
     glClearColor(0.2f, 0.4f, 0.6f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    shader.Use();
-    vao.Bind();
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    rectangle.Draw();
 
     glfwSwapBuffers(window);
     glfwPollEvents();

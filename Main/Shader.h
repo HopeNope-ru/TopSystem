@@ -22,6 +22,8 @@ namespace TopSystem {
 
   public:
 	Shader(const std::string& vertexFilePath, const std::string& fragmentFilePath);
+	Shader() : ID(0) 
+	{ }
 
 	~Shader() { glDeleteProgram(ID); }
 
