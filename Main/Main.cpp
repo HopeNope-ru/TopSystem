@@ -1,8 +1,11 @@
 #pragma once
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "UtilityFunctions.h"
 #include "Shader.h"
+#include "UtilityFunctions.h"
+#include "VertexArrayObject.h"
+#include "VertexBufferObject.h"
+#include "ElemetBufferObject.h"
 
 float vertices[] = {
 	 0.5f,  0.5f, 0.0f,  // top right
@@ -25,6 +28,8 @@ int main()
     0, 1, 3,
     1, 2, 3
   };
+
+  ElementBufferObject ebo();
 
   GLuint VBO, VAO, EBO;
 

@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GettingStartOpenGL\GettingStartOpenGL\glad.c" />
+    <ClCompile Include="ElemetBufferObject.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="UtilityFunctions.cpp" />

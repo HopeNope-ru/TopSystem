@@ -17,5 +17,8 @@ namespace TopSystem
 	glEnableVertexAttribArray(0);
 	// Add color!!!!!!!
 
+	UnBind();
+	vbo.UnBind();
+	ebo.UnBind();
   }
 }
