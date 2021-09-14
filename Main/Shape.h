@@ -5,6 +5,7 @@
 #include "VertexBufferObject.h"
 #include "ElemetBufferObject.h"
 #include "UtilityFunctions.h"
+#include "Shader.h"
 
 namespace TopSystem
 {
@@ -13,17 +14,23 @@ namespace TopSystem
   public:
 	Shape(GLbyte		  colorDimension,
 		  GLbyte		  vertexDimension,
+		  Shader		  shader,
 		  vector<GLfloat> container,
 		  vector<GLint>	  indices		 );
 
-	virtual ~Shape() 
+	virtual ~Shape() = 0
 	{ }
 
 	virtual void Draw() = 0;
 
-  private:
-	VBO _vbo;
-	EBO _ebo;
-	VAO _vao;
+	const VBO& GetVertexBufferObject()  const { return _vbo; }
+	const EBO& GetEelemntBufferObject() const { return _ebo; }
+	const VAO& GetVertexArrayObject()   const { return _vao; }
+
+  protected:
+	VBO	   _vbo;
+	EBO	   _ebo;
+	VAO	   _vao;
+	Shader _shader;
   };
 }
