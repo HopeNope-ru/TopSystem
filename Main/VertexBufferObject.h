@@ -2,11 +2,10 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <vector>
-
+#include "UtilityFunctions.h"
 
 namespace TopSystem 
 {
-  using std::vector;
   using VBO = VertexBufferObject;
 
   class VertexBufferObject 
