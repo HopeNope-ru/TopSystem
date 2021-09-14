@@ -49,13 +49,25 @@ namespace TopSystem {
 	  glfwPollEvents();
 	}
   }
+
   void FramebufferSizeCallback(GLFWwindow* window, int width, int height)
   {
 	glViewport(0, 0, width, height);
   }
+
   void ProcessInput(GLFWwindow* window)
   {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 	  glfwSetWindowShouldClose(window, true);
+  }
+
+  template<class T>
+  void GenerateBuffer(GLenum targetBuffer, vector<T> container)
+  {
+	glGenBuffers(1, &_buffer);
+	glBindBuffer(_targetBuffer, _buffer);
+	GLsizei size = sizeof(T) * _container.size()
+	glBufferData(_targetBuffer, _container.data(), GL_STATIC_DRAW);
+	glBindBuffer(_targetBuffer, 0);
   }
 }
