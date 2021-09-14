@@ -6,21 +6,22 @@
 
 namespace TopSystem
 {
-  using EBO = ElementBufferObject;
-
   class ElementBufferObject 
   {
   public:
-	ElementBufferObject(GLenum targetBuffer, const vector<GLint>& indices);
+	ElementBufferObject(const vector<GLint>& indices);
 
 	void Bind()	  { glBindBuffer(_targetBuffer, _buffer); }
 	void UnBind() { glBindBuffer(_targetBuffer, 0); }
 
 	const vector<GLint>& GetIndices() { return _indices; }
-  private:
-	GLuint _buffer;
-	GLuint _targetBuffer;
 
+  private:
+	GLuint		  _buffer;
 	vector<GLint> _indices;
+
+	static const GLuint _targetBuffer;
   };
+
+  using EBO = ElementBufferObject;
 }
