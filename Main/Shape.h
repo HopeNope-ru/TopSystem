@@ -23,6 +23,7 @@ namespace TopSystem
 
 	virtual void Draw() = 0;
 
+	// Getter
 	const VBO& GetVertexBufferObject()  const { return _vbo; }
 	const EBO& GetEelemntBufferObject() const { return _ebo; }
 	const VAO& GetVertexArrayObject()   const { return _vao; }
