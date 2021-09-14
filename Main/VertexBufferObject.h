@@ -6,8 +6,6 @@
 
 namespace TopSystem 
 {
-  using VBO = VertexBufferObject;
-
   class VertexBufferObject 
   {
   public:
@@ -20,9 +18,11 @@ namespace TopSystem
 	const vector<GLfloat>& GetContainer() { return _container; }
 
   private:
-	GLuint _buffer;
-	GLenum _targetBuffer;
-
+	GLuint			_buffer;
 	vector<GLfloat> _container;
+
+	static const GLenum _targetBuffer;
   };
+
+  using VBO = VertexBufferObject;
 }

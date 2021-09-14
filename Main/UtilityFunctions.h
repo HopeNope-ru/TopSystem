@@ -17,6 +17,13 @@ namespace TopSystem
   void ProcessInput(GLFWwindow* window);
   void RenderLoop(GLFWwindow* window);
 
-  template<class T>
-  void GenerateBuffer(GLenum targetBuffer, vector<T> container);
+  template<typename T>
+  void GenerateBuffer(GLenum targetBuffer, GLuint& buffer, std::vector<T> container)
+  {
+	glGenBuffers(1, &buffer);
+	glBindBuffer(targetBuffer, buffer);
+	GLsizei size = sizeof(T) * container.size();
+	glBufferData(targetBuffer, size, container.data(), GL_STATIC_DRAW);
+	glBindBuffer(targetBuffer, 0);
+  }
 }
