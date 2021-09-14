@@ -2,28 +2,27 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <vector>
-
+#include "UtilityFunctions.h"
 
 namespace TopSystem 
 {
-  using std::vector;
-  using VBO = VertexBufferObject;
-
   class VertexBufferObject 
   {
   public:
 	VertexBufferObject(const vector<GLfloat>& containter);
 
-	void   Bind()	   { glBindBuffer(_targetBuffer, _buffer); }
-	void   UnBind()	   { glBindBuffer(_targetBuffer, _buffer); }
-	GLuint GetBuffer() { return _buffer; }
+	void   Bind()	const { glBindBuffer(_targetBuffer, _buffer); }
+	void   UnBind() const { glBindBuffer(_targetBuffer, _buffer); }
+	GLuint GetBuffer()	  { return _buffer; }
 
-	const vector<GLfloat>& GetContainer() { return _container; }
+	const vector<GLfloat>& GetContainer() const { return _container; }
 
   private:
-	GLuint _buffer;
-	GLenum _targetBuffer;
-
+	GLuint			_buffer;
 	vector<GLfloat> _container;
+
+	static const GLenum _targetBuffer;
   };
+
+  using VBO = VertexBufferObject;
 }

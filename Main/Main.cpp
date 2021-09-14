@@ -1,15 +1,11 @@
 #pragma once
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "UtilityFunctions.h"
 #include "Shader.h"
-
-float vertices[] = {
-	 0.5f,  0.5f, 0.0f,  // top right
-	 0.5f, -0.5f, 0.0f,  // bottom right
-	-0.5f, -0.5f, 0.0f,  // bottom left
-	-0.5f,  0.5f, 0.0f   // top left 
-};
+#include "UtilityFunctions.h"
+#include "VertexArrayObject.h"
+#include "VertexBufferObject.h"
+#include "ElemetBufferObject.h"
 
 using namespace TopSystem;
 
@@ -21,33 +17,25 @@ int main()
     return -1;
   }
 
-  GLint indices[] = {
+  std::vector<GLfloat> container
+  {
+     // coord            color
+     0.5f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f,  // top right
+     0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom right
+    -0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom left
+    -0.5f,  0.5f, 0.0f,  0.0f, 1.0f, 0.0f   // top left 
+  };
+
+  std::vector<GLint>   indices
+  {
     0, 1, 3,
     1, 2, 3
   };
 
-  GLuint VBO, VAO, EBO;
+  VBO vbo(container);
+  EBO ebo(indices);
+  VAO vao(3, 3, vbo, ebo);
 
-  glGenBuffers(1, &VBO);
-  glGenBuffers(1, &EBO);
-  glGenVertexArrays(1, &VAO);
-
-  glBindVertexArray(VAO);
-  glBindBuffer(GL_ARRAY_BUFFER, VBO);
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
-  glEnableVertexAttribArray(0);
-
-  //glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)(sizeof(float) * 3));
-  //glEnableVertexAttribArray(1);
-    
-  glBindBuffer(GL_ARRAY_BUFFER, 0);
-  glBindVertexArray(0);
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
   Shader shader("Shaders/VertexShader.txt", "Shaders/FragmentShader.txt");
 
@@ -59,7 +47,7 @@ int main()
     glClear(GL_COLOR_BUFFER_BIT);
 
     shader.Use();
-    glBindVertexArray(VAO);
+    vao.Bind();
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
     glfwSwapBuffers(window);

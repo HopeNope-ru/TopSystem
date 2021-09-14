@@ -1,13 +1,13 @@
 #include "VertexBufferObject.h"
+#include "UtilityFunctions.h"
 
 namespace TopSystem
 {
-  VertexBufferObject::VertexBufferObject(const std::vector<GLfloat>& container)
-	: _targetBuffer(GL_ARRAY_BUFFER), _container(container)
+  VertexBufferObject::VertexBufferObject(const vector<GLfloat>& container)
+	: _container(container)
   {
-	glGenBuffers(1, &_buffer);
-	glBindBuffer(_targetBuffer, _buffer);
-	glBufferData(_targetBuffer, sizeof(GLfloat) * _container.size(), _container.data(), GL_STATIC_DRAW);
-	glBindBuffer(_targetBuffer, 0);
+	GenerateBuffer(_targetBuffer, _buffer, _container);
   }
+
+  const GLenum VertexBufferObject::_targetBuffer = GL_ARRAY_BUFFER;
 }

@@ -3,19 +3,26 @@
 
 namespace TopSystem 
 {
-  VertexArrayObject::VertexArrayObject(VBO vbo, EBO ebo) 
+  VertexArrayObject::VertexArrayObject(GLuint	  vertexDimension, 
+									   GLuint	  colorDimension, 
+									   const VBO& vbo, 
+									   const EBO& ebo) 
   {
 	glGenVertexArrays(1, &_vertexArray);
 	Bind();
-	ebo.Bind();
 	vbo.Bind();
+	ebo.Bind();
 
-	const vector<GLfloat>& container = vbo.GetContainer();
-
-	GLsizei stride = 3 * sizeof(GLfloat);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (void*)0);
+	GLsizei stride = (vertexDimension + colorDimension) * sizeof(GLfloat);
+	glVertexAttribPointer(0, vertexDimension, GL_FLOAT, GL_FALSE, stride, (void*)0);
 	glEnableVertexAttribArray(0);
-	// Add color!!!!!!!
+	
+	GLsizei offset = sizeof(GLfloat) * vertexDimension;
+	glVertexAttribPointer(1, colorDimension, GL_FLOAT, GL_FALSE, stride, (void*)offset);
+	glEnableVertexAttribArray(1);
 
+	UnBind();
+	vbo.UnBind();
+	ebo.UnBind();
   }
 }
