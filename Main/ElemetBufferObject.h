@@ -10,6 +10,8 @@ namespace TopSystem
   {
   public:
 	ElementBufferObject(const vector<GLint>& indices);
+	ElementBufferObject() : _buffer(0)
+	{ }
 
 	void Bind()	  const { glBindBuffer(_targetBuffer, _buffer); }
 	void UnBind() const { glBindBuffer(_targetBuffer, 0); }

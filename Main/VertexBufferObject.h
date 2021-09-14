@@ -10,6 +10,8 @@ namespace TopSystem
   {
   public:
 	VertexBufferObject(const vector<GLfloat>& containter);
+	VertexBufferObject() : _buffer(0)
+	{ }
 
 	void   Bind()	const { glBindBuffer(_targetBuffer, _buffer); }
 	void   UnBind() const { glBindBuffer(_targetBuffer, _buffer); }

@@ -1,6 +1,7 @@
 #pragma once
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
 #include "Shader.h"
 #include "UtilityFunctions.h"
 #include "VertexArrayObject.h"
