@@ -2,7 +2,7 @@
 
 namespace TopSystem
 {
-  VertexBufferObject::VertexBufferObject(const std::vector<GLfloat>& container)
+  VertexBufferObject::VertexBufferObject(const vector<GLfloat>& container)
 	: _targetBuffer(GL_ARRAY_BUFFER), _container(container)
   {
 	glGenBuffers(1, &_buffer);
