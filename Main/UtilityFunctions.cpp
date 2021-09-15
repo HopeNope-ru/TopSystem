@@ -3,6 +3,7 @@
 #include "PathShaders.h"
 #include "Circle.h"
 #include "Triangle.h"
+#include "Rectangle.h"
 
 namespace TopSystem {
   GLFWwindow* Init()
@@ -64,11 +65,12 @@ namespace TopSystem {
 	  glfwSetWindowShouldClose(window, true);
   }
 
-  Circle   CreateCircle(	  EDimension		 dimension, 
-						const PathShaders&	 pathShaders, 
-							  vector<GLfloat>& container, 
-							  vector<GLint>&   indices)
+
+  Circle   CreateCircle(	  EDimension	 dimension, 
+						const PathShaders&	 pathShaders  )
   {
+	vector<GLfloat> container;
+	vector<GLint>	indices;
 	auto AddColorToVertex = [&](GLfloat R, GLfloat G, GLfloat B)
 	{
 	  container.push_back(R);
@@ -112,22 +114,21 @@ namespace TopSystem {
 				  pathShaders.GetVertexFilePath(), 
 				  pathShaders.GetFragmentFilePath(), 
 				  container, 
-				  indices);
+				  indices			);
   }
   
   Triangle CreateTriangle(		EDimension	 dimension, 
-						  const PathShaders& pathShaders,
-						  const GLfloat*	 triangleVertex,
-								GLsizei		 sizeTriangleVertex) 
+						  const PathShaders& pathShaders) 
   {
-	vector<GLfloat> container;
-	vector<GLint>	indices;
-
-	for (int i = 0; i < sizeTriangleVertex; ++i) 
+	const vector<GLfloat> container
 	{
-	  container.push_back(triangleVertex[i]);
-	}
+	  // coord			  color
+	  0.0f,  0.5f, 0.0f,	  0.0f, 0.0f, 1.0f,
+	  0.5f, -0.5f, 0.0f,	  0.0f, 1.0f, 0.0f,
+	 -0.5f, -0.5f, 0.0f,	  1.0f, 0.0f, 0.0f
+	};
 
+	vector<GLint>	indices;
 	for (int i = 0; i < 3; ++i)
 	{
 	  indices.push_back(i);
@@ -138,6 +139,32 @@ namespace TopSystem {
 					"", 
 					"", 
 					container, 
-					indices);
+					indices			 );
+  }
+  
+  Rectangle CreateRectangle(	  EDimension   dimension, 
+							const PathShaders& pathShaders)
+  {
+	std::vector<GLfloat> container
+	{
+	  // coord            color
+	  0.5f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f,  // top right
+	  0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom right
+	 -0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom left
+	 -0.5f,  0.5f, 0.0f,  0.0f, 1.0f, 0.0f   // top left 
+	};
+
+	std::vector<GLint>   indices
+	{
+	  0, 1, 3,
+	  1, 2, 3
+	};
+
+	return Rectangle((GLuint)dimension, 
+					 (GLuint)dimension, 
+					 "", 
+					 "", 
+					 container, 
+					 indices		  );
   }
 }
