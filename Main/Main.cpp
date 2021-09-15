@@ -10,6 +10,7 @@
 #include "ElemetBufferObject.h"
 #include "Rectangle.h"
 #include "Circle.h"
+#include "Triangle.h"
 
 using namespace TopSystem;
 
@@ -40,11 +41,15 @@ int main()
   std::vector<GLint>   circleInd;
   CreateCircle(circleCont, circleInd);
 
+  std::vector<GLfloat> vertexTriangle;
+  std::vector<GLint>   indicesTriangle;
+  CreateTriangle(triangleVertex, sizeof(triangleVertex) / sizeof(GLfloat), vertexTriangle, indicesTriangle);
   string vertexPath = "Shaders/VertexShader.txt";
   string fragmentPath = "Shaders/FragmentShader.txt";
 
   Rectangle rectangle(3, 3, vertexPath, fragmentPath, container, indices);
   Circle    circle(3, 3, vertexPath, fragmentPath, circleCont, circleInd);
+  Triangle  triangle(3, 3, vertexPath, fragmentPath, vertexTriangle, indicesTriangle);
 
   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
   while (!glfwWindowShouldClose(window))
@@ -55,7 +60,8 @@ int main()
     glClear(GL_COLOR_BUFFER_BIT);
 
     //rectangle.Draw();
-    circle.Draw();
+    //circle.Draw();
+    triangle.Draw();
 
     glfwSwapBuffers(window);
     glfwPollEvents();

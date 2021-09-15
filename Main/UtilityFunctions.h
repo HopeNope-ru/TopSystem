@@ -8,10 +8,15 @@ namespace TopSystem
   GLFWwindow* Init();
 
   void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
-  void ProcessInput(GLFWwindow* window);
-  void RenderLoop(GLFWwindow* window);
+  void ProcessInput			  (GLFWwindow* window);
+  void RenderLoop			  (GLFWwindow* window);
 
-  void CreateCircle(vector<GLfloat>& container, vector<GLint>& indices);
+  void CreateCircle	 (vector<GLfloat>& container, vector<GLint>& indices);
+
+  void CreateTriangle(const GLfloat*		 triangleVertex,
+							GLsizei			 sizeTriangleVertex,
+							vector<GLfloat>& container, 
+							vector<GLint>&   indices		 );
 
   template<typename T>
   void GenerateBuffer(GLenum targetBuffer, GLuint& buffer, std::vector<T> container)
