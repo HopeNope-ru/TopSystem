@@ -1,8 +1,11 @@
 #pragma once
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <memory>
+
 #include "Defs.h"
 #include "PathShaders.h"
+#include "Objects.h"
 
 namespace TopSystem
 {
@@ -14,7 +17,7 @@ namespace TopSystem
 
   void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
   void ProcessInput			  (GLFWwindow* window);
-  void RenderLoop			  (GLFWwindow* window);
+  void RenderLoop			  (GLFWwindow* window, std::shared_ptr<Objects> obj);
 
   template<typename T>
   void GenerateBuffer(GLenum targetBuffer, GLuint& buffer, std::vector<T> container)

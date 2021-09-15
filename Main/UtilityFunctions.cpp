@@ -36,7 +36,7 @@ namespace TopSystem {
 	return window;
   }
 
-  void RenderLoop(GLFWwindow* window)
+  void RenderLoop(GLFWwindow* window, )
   {
 	while (!glfwWindowShouldClose(window))
 	{

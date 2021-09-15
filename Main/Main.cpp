@@ -15,7 +15,7 @@
 #include "PathShaders.h"
 
 using namespace TopSystem;
-
+using spShape = shared_ptr<Shape>;
 int main()
 {
   GLFWwindow* window = Init();
@@ -28,7 +28,12 @@ int main()
   string fragmentPath = "Shaders/FragmentShader.txt";
   PathShaders pathShaders(vertexPath, fragmentPath);
 
-  shared_ptr<Circle> circle = CreateCircle(EDimension::_3D, pathShaders);
+  vector<spShape> shapes
+  {
+    CreateCircle    (EDimension::_3D, pathShaders),
+    CreateTriangle  (EDimension::_3D, pathShaders),
+    CreateRectangle (EDimension::_3D, pathShaders)
+  };
 
   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
   while (!glfwWindowShouldClose(window))
@@ -38,7 +43,7 @@ int main()
     glClearColor(0.2f, 0.4f, 0.6f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    circle->Draw();
+    shapes[1]->Draw();
 
     glfwSwapBuffers(window);
     glfwPollEvents();

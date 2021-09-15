@@ -5,8 +5,8 @@
 
 namespace TopSystem
 {
-  shared_ptr<Circle>   CreateCircle(EDimension	 dimension,
-	const PathShaders& pathShaders)
+  shared_ptr<Circle>   CreateCircle		(		EDimension	 dimension,
+										  const PathShaders& pathShaders)
   {
 	vector<GLfloat> container;
 	vector<GLint>	indices;
@@ -59,8 +59,8 @@ namespace TopSystem
 	return cir;
   }
 
-  shared_ptr<Triangle> CreateTriangle(EDimension	 dimension,
-	const PathShaders& pathShaders)
+  shared_ptr<Triangle> CreateTriangle	(		EDimension	 dimension,
+										  const PathShaders& pathShaders)
   {
 	const vector<GLfloat> container
 	{
@@ -87,8 +87,8 @@ namespace TopSystem
 	return tri;
   }
 
-  shared_ptr<Rectangle> CreateRectangle(EDimension   dimension,
-	const PathShaders& pathShaders)
+  shared_ptr<Rectangle> CreateRectangle	(		EDimension   dimension,
+										  const PathShaders& pathShaders)
   {
 	std::vector<GLfloat> container
 	{
