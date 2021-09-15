@@ -6,14 +6,17 @@ namespace TopSystem
   class Triangle : public Shape
   {
   public:
-	Triangle(GLuint			  colorDimension,
-			 GLuint			  vertexDimension,
-			 string			  vertexFilePath,
-			 string			  fragmentFilePath,
-			 vector<GLfloat>  container,
-			 vector<GLint>    indices)
-	  : Shape(colorDimension, vertexDimension,  vertexFilePath, fragmentFilePath, container, indices)
-	{ }
+	Triangle( GLuint			colorDimension,
+			  GLuint			vertexDimension,
+			  const PathShaders&	pathShaders,
+			  vector<GLfloat> container,
+			  vector<GLint>   indices		   )
+	: Shape(colorDimension, 
+			vertexDimension, 
+			pathShaders,
+			container,		
+			indices			 )
+  { }
 
 	virtual void Draw() override;
   };

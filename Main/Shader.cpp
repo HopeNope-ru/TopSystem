@@ -6,7 +6,7 @@
 namespace TopSystem
 {
   // В конструкторе создается шейдерный конвеер
-  Shader::Shader(const std::string& vertexFilePath, const std::string& fragmentFilePath)
+  Shader::Shader(const PathShaders& pathShaders)
   {
 	std::string	vShaderCode, fShaderCode;
 	std::ifstream vShaderFile, fShaderFile;
@@ -19,8 +19,8 @@ namespace TopSystem
 	{
 	  std::stringstream vShaderStream, fShaderStream;
 
-	  vShaderFile.open(vertexFilePath);
-	  fShaderFile.open(fragmentFilePath);
+	  vShaderFile.open(pathShaders.GetVertexFilePath());
+	  fShaderFile.open(pathShaders.GetFragmentFilePath());
 
 	  vShaderStream << vShaderFile.rdbuf();
 	  fShaderStream << fShaderFile.rdbuf();

@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 
 #include "Defs.h"
+#include "PathShaders.h"
 
 namespace TopSystem {
   enum class EShaderPipeline : GLbyte
@@ -22,7 +23,7 @@ namespace TopSystem {
 	void CheckCompile(GLuint keyShader, EShaderPipeline shader);
 
   public:
-	Shader(const std::string& vertexFilePath, const std::string& fragmentFilePath);
+	Shader(const PathShaders& pathShaders);
 	Shader() : ID(0) 
 	{ }
 
