@@ -1,6 +1,7 @@
 #pragma once
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
 #include "ElemetBufferObject.h"
 #include "VertexBufferObject.h"
 
@@ -12,7 +13,7 @@ namespace TopSystem
 	VertexArrayObject(GLuint	 vertexDimension,
 					  GLuint	 colorDimension,
 					  const VBO& vbo,
-					  const EBO& ebo);
+					  const EBO& ebo			);
 
 	VertexArrayObject() : _vertexArray(0)
 	{ }

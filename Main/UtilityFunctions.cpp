@@ -4,6 +4,8 @@
 #include "Circle.h"
 #include "Triangle.h"
 #include "Rectangle.h"
+#include "IDrawable.h"
+#include "Shape.h"
 
 namespace TopSystem {
   GLFWwindow* Init()
@@ -36,7 +38,9 @@ namespace TopSystem {
 	return window;
   }
 
-  void RenderLoop(GLFWwindow* window)
+  EShapes eShape = EShapes::Circle;
+
+  void RenderLoop(GLFWwindow* window, const std::vector<std::shared_ptr<Shape>>& shapes)
   {
 	while (!glfwWindowShouldClose(window))
 	{
@@ -44,6 +48,19 @@ namespace TopSystem {
 
 	  glClearColor(0.2f, 0.4f, 0.6f, 1.0f);
 	  glClear(GL_COLOR_BUFFER_BIT);
+
+	  switch (eShape)
+	  {
+	  case EShapes::Circle:
+		shapes[(GLint)eShape]->Draw();
+		break;
+	  case EShapes::Triangle:
+		shapes[(GLint)eShape]->Draw();
+		break;
+	  case EShapes::Rectangle:
+		shapes[(GLint)eShape]->Draw();
+		break;
+	  }
 
 	  glfwSwapBuffers(window);
 	  glfwPollEvents();
@@ -58,106 +75,12 @@ namespace TopSystem {
   void ProcessInput(GLFWwindow* window)
   {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-	  glfwSetWindowShouldClose(window, true);
-  }
-
-
-  Circle   CreateCircle(	  EDimension	 dimension, 
-						const PathShaders&	 pathShaders  )
-  {
-	vector<GLfloat> container;
-	vector<GLint>	indices;
-	auto AddColorToVertex = [&](GLfloat R, GLfloat G, GLfloat B)
-	{
-	  container.push_back(R);
-	  container.push_back(G);
-	  container.push_back(B);
-	};
-
-	container.push_back(0.0f);
-	container.push_back(0.0f);
-	container.push_back(0.0f);
-	AddColorToVertex(0.0f, 1.0f, 0.0f);
-
-	int amountOfPoint = 0;
-	for (int angle = 45, i = 1; angle <= 360; angle += 45, i++) {
-	  float radian = angle * (3.14f / 180.0f);
-	  container.push_back(std::cos(radian) / 2);
-	  container.push_back(std::sin(radian) / 2);
-	  container.push_back(0.0f);
-	  amountOfPoint++;
-
-	  AddColorToVertex(0.0f, 0.0f, 1.0f);
-	}
-
-	int i = 2;
-	while(i <= amountOfPoint)
-	{
-	  indices.push_back(0);
-	  indices.push_back(i - 1);
-	  indices.push_back(i);
-	  ++i;
-	}
-
-	// Уменьшаем на 1, что бы вернуться к прошлому значению, ....
-	// ....которое свяжется в цепочку индексов
-	indices.push_back(0);
-	indices.push_back(1);
-	indices.push_back(--i);
-
-	return Circle((GLuint)dimension, 
-				  (GLuint)dimension, 
-				  pathShaders, 
-				  container, 
-				  indices			);
-  }
-  
-  Triangle CreateTriangle(		EDimension	 dimension, 
-						  const PathShaders& pathShaders) 
-  {
-	const vector<GLfloat> container
-	{
-	  // coord			  color
-	  0.0f,  0.5f, 0.0f,	  0.0f, 0.0f, 1.0f,
-	  0.5f, -0.5f, 0.0f,	  0.0f, 1.0f, 0.0f,
-	 -0.5f, -0.5f, 0.0f,	  1.0f, 0.0f, 0.0f
-	};
-
-	vector<GLint>	indices;
-	for (int i = 0; i < 3; ++i)
-	{
-	  indices.push_back(i);
-	}
-
-	return Triangle((GLuint)dimension, 
-					(GLuint)dimension, 
-					pathShaders,
-					container, 
-					indices			 );
-  }
-  
-  Rectangle CreateRectangle(	  EDimension   dimension, 
-							const PathShaders& pathShaders)
-  {
-	std::vector<GLfloat> container
-	{
-	  // coord            color
-	  0.5f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f,  // top right
-	  0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom right
-	 -0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom left
-	 -0.5f,  0.5f, 0.0f,  0.0f, 1.0f, 0.0f   // top left 
-	};
-
-	std::vector<GLint>   indices
-	{
-	  0, 1, 3,
-	  1, 2, 3
-	};
-
-	return Rectangle((GLuint)dimension, 
-					 (GLuint)dimension, 
-					 pathShaders,
-					 container, 
-					 indices		  );
+		glfwSetWindowShouldClose(window, true);
+	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
+		eShape = EShapes::Circle;
+	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
+		eShape = EShapes::Triangle;
+	if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS)
+		eShape = EShapes::Rectangle;
   }
 }

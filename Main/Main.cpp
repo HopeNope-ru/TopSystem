@@ -8,55 +8,36 @@
 #include "VertexArrayObject.h"
 #include "VertexBufferObject.h"
 #include "ElemetBufferObject.h"
+#include "CreateFunctions.h"
 #include "Rectangle.h"
 #include "Circle.h"
 #include "Triangle.h"
 #include "PathShaders.h"
 
 using namespace TopSystem;
-
+using spShape = shared_ptr<Shape>;
 int main()
 {
   GLFWwindow* window = Init();
-  // Init обязует определить окно
+  // Init have to declare the window
   if (window == nullptr) {
     return -1;
   }
 
-  std::vector<GLfloat> container
-  {
-     // coord            color
-     0.5f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f,  // top right
-     0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom right
-    -0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom left
-    -0.5f,  0.5f, 0.0f,  0.0f, 1.0f, 0.0f   // top left 
-  };
-
-  std::vector<GLint>   indices
-  {
-    0, 1, 3,
-    1, 2, 3
-  };
-
-  string vertexPath = "Shaders/VertexShader.txt";
-  string fragmentPath = "Shaders/FragmentShader.txt";
+  string      vertexPath    = "Shaders/VertexShader.txt";
+  string      fragmentPath  = "Shaders/FragmentShader.txt";
   PathShaders pathShaders(vertexPath, fragmentPath);
 
-  Circle&& circle = CreateCircle(EDimension::_3D, pathShaders);
+  vector<spShape> shapes
+  {
+    CreateCircle    (EDimension::_3D, 20, pathShaders),
+    CreateTriangle  (EDimension::_3D, pathShaders),
+    CreateRectangle (EDimension::_3D, pathShaders)
+  };
 
   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-  while (!glfwWindowShouldClose(window))
-  {
-    ProcessInput(window);
 
-    glClearColor(0.2f, 0.4f, 0.6f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-
-    circle.Draw();
-
-    glfwSwapBuffers(window);
-    glfwPollEvents();
-  }
+  RenderLoop(window, shapes);
 
   glfwTerminate();
   return 0;

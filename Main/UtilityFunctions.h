@@ -1,29 +1,25 @@
 #pragma once
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <memory>
+
 #include "Defs.h"
 #include "PathShaders.h"
 
 namespace TopSystem
 {
+  class Shape;
   class Circle;
   class Triangle;
   class Rectangle;
 
   GLFWwindow* Init();
 
-  void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
-  void ProcessInput			  (GLFWwindow* window);
-  void RenderLoop			  (GLFWwindow* window);
+  void FramebufferSizeCallback(	GLFWwindow* window, int width, int height);
+  void ProcessInput			  (	GLFWwindow* window);
 
-  Circle CreateCircle(		EDimension	 dimension, 
-					  const PathShaders& pathShaders  );
-
-  Triangle CreateTriangle(		EDimension	 dimension, 
-						  const PathShaders& pathShaders);
-
-  Rectangle CreateRectangle(	  EDimension   dimension, 
-							const PathShaders& pathShaders);
+  void RenderLoop			  (		  GLFWwindow* window, 
+								const std::vector<std::shared_ptr<Shape>>& shapes);
 
   template<typename T>
   void GenerateBuffer(GLenum targetBuffer, GLuint& buffer, std::vector<T> container)

@@ -2,7 +2,7 @@
 
 namespace TopSystem
 {
-  void Rectangle::Draw() 
+  void Rectangle::Draw() const
   {
 	_shader.Use();
 	_vao.Bind();
