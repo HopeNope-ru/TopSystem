@@ -6,18 +6,24 @@
 
 namespace TopSystem
 {
+  class Circle;
+  class Triangle;
+  class Rectangle;
+
   GLFWwindow* Init();
 
   void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
   void ProcessInput			  (GLFWwindow* window);
   void RenderLoop			  (GLFWwindow* window);
 
-  void CreateCircle3D  (EDimension dimension, const PathShaders& pathShader, vector<GLfloat>& container, vector<GLint>& indices);
+  Circle CreateCircle(		EDimension	 dimension, 
+					  const PathShaders& pathShaders  );
 
-  void CreateTriangle3D(const GLfloat*		   triangleVertex,
-							  GLsizei		   sizeTriangleVertex,
-							  vector<GLfloat>& container, 
-							  vector<GLint>&   indices			 );
+  Triangle CreateTriangle(		EDimension	 dimension, 
+						  const PathShaders& pathShaders);
+
+  Rectangle CreateRectangle(	  EDimension   dimension, 
+							const PathShaders& pathShaders);
 
   template<typename T>
   void GenerateBuffer(GLenum targetBuffer, GLuint& buffer, std::vector<T> container)
