@@ -6,12 +6,13 @@ namespace TopSystem
   class Rectangle : public Shape
   {
   public:
-	Rectangle(GLbyte		   colorDimension,
-			  GLbyte		   vertexDimension,
-			  Shader		   shader,
+	Rectangle(GLuint		   colorDimension,
+			  GLuint		   vertexDimension,
+			  string		   vertexFilePath,
+			  string		   fragmentFilePath,
 			  vector<GLfloat>  container,
 			  vector<GLint>    indices)
-	  : Shape(colorDimension, vertexDimension, shader, container, indices)
+	  : Shape(colorDimension, vertexDimension,  vertexFilePath, fragmentFilePath, container, indices)
 	{ }
 
 	virtual void Draw() override;

@@ -6,15 +6,17 @@
 #include "ElemetBufferObject.h"
 #include "UtilityFunctions.h"
 #include "Shader.h"
+#include "Defs.h"
 
 namespace TopSystem
 {
   class Shape
   {
   public:
-	Shape(GLbyte		  colorDimension,
-		  GLbyte		  vertexDimension,
-		  Shader		  shader,
+	Shape(GLuint		  colorDimension,
+		  GLuint		  vertexDimension,
+		  string		  vertexFilePath,
+		  string		  fragmentFilePath,
 		  vector<GLfloat> container,
 		  vector<GLint>	  indices		 );
 

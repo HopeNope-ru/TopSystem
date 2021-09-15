@@ -2,6 +2,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include "Defs.h"
 #include "Shader.h"
 #include "UtilityFunctions.h"
 #include "VertexArrayObject.h"
@@ -33,10 +34,14 @@ int main()
     0, 1, 3,
     1, 2, 3
   };
+  VBO _vbo(container);
+  EBO _ebo(indices);
+  VAO _vao(3, 3, _vbo, _ebo);
 
-  Shader shader("Shaders/VertexShader.txt", "Shaders/FragmentShader.txt");
-  Rectangle rectangle(3, 3, shader, container, indices);
-
+  string vertexPath = "Shaders/VertexShader.txt";
+  string fragmentPath = "Shaders/FragmentShader.txt";
+  Rectangle rectangle(3, 3, vertexPath, fragmentPath, container, indices);
+  
   while (!glfwWindowShouldClose(window))
   {
     ProcessInput(window);

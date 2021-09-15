@@ -17,7 +17,7 @@ namespace TopSystem
 	VertexArrayObject() : _vertexArray(0)
 	{ }
 
-	void   Bind()			{ glBindVertexArray(_vertexArray); }
+	void   Bind() const		{ glBindVertexArray(_vertexArray); }
 	void   UnBind()			{ glBindVertexArray(0); }
 	GLuint GetVertexArray() { return _vertexArray; }
 

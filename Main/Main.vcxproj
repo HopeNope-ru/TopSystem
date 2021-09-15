@@ -157,6 +157,7 @@
     <ClCompile Include="VertexBufferObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Defs.h" />
     <ClInclude Include="ElemetBufferObject.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Shader.h" />
