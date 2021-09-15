@@ -40,18 +40,17 @@ int main()
 
   string vertexPath = "Shaders/VertexShader.txt";
   string fragmentPath = "Shaders/FragmentShader.txt";
+  PathShaders pathShaders(vertexPath, fragmentPath);
 
   std::vector<GLfloat> circleCont;
   std::vector<GLint>   circleInd;
-  Circle&& circle = CreateCircle(EDimension::_3D, PathShaders(vertexPath, fragmentPath), circleCont, circleInd);
+  Circle&& circle = CreateCircle(EDimension::_3D, pathShaders, circleCont, circleInd);
 
   std::vector<GLfloat> vertexTriangle;
   std::vector<GLint>   indicesTriangle;
-  CreateTriangle(triangleVertex, sizeof(triangleVertex) / sizeof(GLfloat), vertexTriangle, indicesTriangle);
+  //Triangle&& triangle = CreateTriangle(triangleVertex, sizeof(triangleVertex) / sizeof(GLfloat), vertexTriangle, indicesTriangle);
 
   Rectangle rectangle(3, 3, vertexPath, fragmentPath, container, indices);
-  //Circle    circle(3, 3, vertexPath, fragmentPath, circleCont, circleInd);
-  Triangle  triangle(3, 3, vertexPath, fragmentPath, vertexTriangle, indicesTriangle);
 
   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
   while (!glfwWindowShouldClose(window))

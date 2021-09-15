@@ -7,6 +7,7 @@
 namespace TopSystem
 {
   class Circle;
+  class Triangle;
 
   GLFWwindow* Init();
 
@@ -16,10 +17,10 @@ namespace TopSystem
 
   Circle CreateCircle(EDimension dimension, const PathShaders& pathShaders, vector<GLfloat>& container, vector<GLint>& indices);
 
-  void CreateTriangle(const GLfloat*		   triangleVertex,
-							  GLsizei		   sizeTriangleVertex,
-							  vector<GLfloat>& container, 
-							  vector<GLint>&   indices			 );
+  Triangle CreateTriangle(		EDimension	 dimension, 
+						  const PathShaders& pathShaders,
+						  const GLfloat*	 triangleVertex,
+								GLsizei		 sizeTriangleVertex);
 
   template<typename T>
   void GenerateBuffer(GLenum targetBuffer, GLuint& buffer, std::vector<T> container)

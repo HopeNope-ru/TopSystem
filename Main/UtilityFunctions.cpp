@@ -2,6 +2,7 @@
 #include "Shader.h"
 #include "PathShaders.h"
 #include "Circle.h"
+#include "Triangle.h"
 
 namespace TopSystem {
   GLFWwindow* Init()
@@ -63,7 +64,10 @@ namespace TopSystem {
 	  glfwSetWindowShouldClose(window, true);
   }
 
-  Circle CreateCircle(EDimension dimension, const PathShaders& pathShaders, vector<GLfloat>& container, vector<GLint>& indices)
+  Circle   CreateCircle(	  EDimension		 dimension, 
+						const PathShaders&	 pathShaders, 
+							  vector<GLfloat>& container, 
+							  vector<GLint>&   indices)
   {
 	auto AddColorToVertex = [&](GLfloat R, GLfloat G, GLfloat B)
 	{
@@ -103,14 +107,22 @@ namespace TopSystem {
 	indices.push_back(1);
 	indices.push_back(--i);
 
-	return Circle((GLuint)dimension, (GLuint)dimension, pathShaders.GetVertexFilePath(), pathShaders.GetFragmentFilePath(), container, indices);
+	return Circle((GLuint)dimension, 
+				  (GLuint)dimension, 
+				  pathShaders.GetVertexFilePath(), 
+				  pathShaders.GetFragmentFilePath(), 
+				  container, 
+				  indices);
   }
   
-  void CreateTriangle(const GLfloat*		   triangleVertex,
-							  GLsizei		   sizeTriangleVertex,
-							  vector<GLfloat>& container, 
-							  vector<GLint>&   indices			 ) 
+  Triangle CreateTriangle(		EDimension	 dimension, 
+						  const PathShaders& pathShaders,
+						  const GLfloat*	 triangleVertex,
+								GLsizei		 sizeTriangleVertex) 
   {
+	vector<GLfloat> container;
+	vector<GLint>	indices;
+
 	for (int i = 0; i < sizeTriangleVertex; ++i) 
 	{
 	  container.push_back(triangleVertex[i]);
@@ -120,5 +132,12 @@ namespace TopSystem {
 	{
 	  indices.push_back(i);
 	}
+
+	return Triangle((GLuint)dimension, 
+					(GLuint)dimension, 
+					"", 
+					"", 
+					container, 
+					indices);
   }
 }
