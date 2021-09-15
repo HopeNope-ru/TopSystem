@@ -63,7 +63,7 @@ namespace TopSystem {
 	  glfwSetWindowShouldClose(window, true);
   }
 
-  Circle CreateCircle(const PathShaders& pathShaders, vector<GLfloat>& container, vector<GLint>& indices)
+  Circle CreateCircle(EDimension dimension, const PathShaders& pathShaders, vector<GLfloat>& container, vector<GLint>& indices)
   {
 	auto AddColorToVertex = [&](GLfloat R, GLfloat G, GLfloat B)
 	{
@@ -103,7 +103,7 @@ namespace TopSystem {
 	indices.push_back(1);
 	indices.push_back(--i);
 
-	return Circle(3, 3, pathShaders.GetVertexFilePath(), pathShaders.GetFragmentFilePath(), container, indices);
+	return Circle((GLuint)dimension, (GLuint)dimension, pathShaders.GetVertexFilePath(), pathShaders.GetFragmentFilePath(), container, indices);
   }
   
   void CreateTriangle(const GLfloat*		   triangleVertex,

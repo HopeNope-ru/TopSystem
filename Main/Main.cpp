@@ -43,7 +43,7 @@ int main()
 
   std::vector<GLfloat> circleCont;
   std::vector<GLint>   circleInd;
-  Circle&& circle = CreateCircle(PathShaders(vertexPath, fragmentPath), circleCont, circleInd);
+  Circle&& circle = CreateCircle(EDimension::_3D, PathShaders(vertexPath, fragmentPath), circleCont, circleInd);
 
   std::vector<GLfloat> vertexTriangle;
   std::vector<GLint>   indicesTriangle;

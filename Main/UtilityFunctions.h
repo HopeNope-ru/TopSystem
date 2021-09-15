@@ -14,7 +14,7 @@ namespace TopSystem
   void ProcessInput			  (GLFWwindow* window);
   void RenderLoop			  (GLFWwindow* window);
 
-  Circle CreateCircle(const PathShaders& pathShaders, vector<GLfloat>& container, vector<GLint>& indices);
+  Circle CreateCircle(EDimension dimension, const PathShaders& pathShaders, vector<GLfloat>& container, vector<GLint>& indices);
 
   void CreateTriangle(const GLfloat*		   triangleVertex,
 							  GLsizei		   sizeTriangleVertex,

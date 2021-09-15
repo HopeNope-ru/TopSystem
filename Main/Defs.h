@@ -10,7 +10,7 @@ namespace TopSystem
   using std::vector;
   using std::string;
 
-  enum EDimension
+  enum class EDimension : GLbyte
   {
 	_2D = 2,
 	_3D
