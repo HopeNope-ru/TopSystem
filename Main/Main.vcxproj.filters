@@ -48,6 +48,9 @@
     <ClCompile Include="Triangle.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
+    <ClCompile Include="CreateFunctions.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UtilityFunctions.h">
@@ -81,6 +84,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="PathShaders.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateFunctions.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

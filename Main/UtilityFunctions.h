@@ -16,15 +16,6 @@ namespace TopSystem
   void ProcessInput			  (GLFWwindow* window);
   void RenderLoop			  (GLFWwindow* window);
 
-  Circle CreateCircle(		EDimension	 dimension, 
-					  const PathShaders& pathShaders  );
-
-  Triangle CreateTriangle(		EDimension	 dimension, 
-						  const PathShaders& pathShaders);
-
-  Rectangle CreateRectangle(	  EDimension   dimension, 
-							const PathShaders& pathShaders);
-
   template<typename T>
   void GenerateBuffer(GLenum targetBuffer, GLuint& buffer, std::vector<T> container)
   {

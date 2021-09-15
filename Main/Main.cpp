@@ -8,6 +8,7 @@
 #include "VertexArrayObject.h"
 #include "VertexBufferObject.h"
 #include "ElemetBufferObject.h"
+#include "CreateFunctions.h"
 #include "Rectangle.h"
 #include "Circle.h"
 #include "Triangle.h"
