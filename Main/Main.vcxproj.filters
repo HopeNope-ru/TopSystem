@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы заголовков\Shapes">
+      <UniqueIdentifier>{1192c4d3-9f49-43c6-bdb0-93b2f157c390}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Utilities">
+      <UniqueIdentifier>{e96aa12d-4b9f-44e6-8957-fc2e06a03bc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Utilities">
+      <UniqueIdentifier>{d1597582-bb73-4fe2-a0e1-d9a2fa1a2b4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Shapes">
+      <UniqueIdentifier>{452f6fe5-e52a-434f-970a-7fa3d1d8550f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\OpenGL">
+      <UniqueIdentifier>{a7da5488-259b-4a99-9fce-d2eedf0bb838}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\OpenGL">
+      <UniqueIdentifier>{38897e4c-80cf-44d8-b7fd-f91d5eac8e27}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -22,72 +40,72 @@
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
     <ClCompile Include="UtilityFunctions.cpp">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
-    <ClCompile Include="VertexBufferObject.cpp">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы ресурсов\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="VertexArrayObject.cpp">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы ресурсов\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="ElemetBufferObject.cpp">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
-    <ClCompile Include="Shape.cpp">
-      <Filter>Файлы ресурсов</Filter>
+    <ClCompile Include="VertexBufferObject.cpp">
+      <Filter>Файлы ресурсов\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Rectangle.cpp">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
-    <ClCompile Include="Circle.cpp">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы ресурсов\Shapes</Filter>
     </ClCompile>
     <ClCompile Include="Triangle.cpp">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы ресурсов\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape.cpp">
+      <Filter>Файлы ресурсов\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Файлы ресурсов\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="ElemetBufferObject.cpp">
+      <Filter>Файлы ресурсов\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="CreateFunctions.cpp">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы ресурсов\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Файлы ресурсов\Shapes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="UtilityFunctions.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Shader.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="VertexBufferObject.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="VertexArrayObject.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="ElemetBufferObject.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="Circle.h">
+      <Filter>Файлы заголовков\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Shape.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Rectangle.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Defs.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Circle.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Triangle.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexBufferObject.h">
+      <Filter>Файлы заголовков\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexArrayObject.h">
+      <Filter>Файлы заголовков\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Файлы заголовков\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="PathShaders.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="ElemetBufferObject.h">
+      <Filter>Файлы заголовков\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="UtilityFunctions.h">
+      <Filter>Файлы заголовков\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="CreateFunctions.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Defs.h">
+      <Filter>Файлы заголовков\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
