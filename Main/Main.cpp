@@ -28,7 +28,7 @@ int main()
   string fragmentPath = "Shaders/FragmentShader.txt";
   PathShaders pathShaders(vertexPath, fragmentPath);
 
-  Circle&& circle = CreateCircle(EDimension::_3D, pathShaders);
+  shared_ptr<Circle> circle = CreateCircle(EDimension::_3D, pathShaders);
 
   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
   while (!glfwWindowShouldClose(window))
@@ -38,7 +38,7 @@ int main()
     glClearColor(0.2f, 0.4f, 0.6f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    circle.Draw();
+    circle->Draw();
 
     glfwSwapBuffers(window);
     glfwPollEvents();

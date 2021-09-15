@@ -5,7 +5,7 @@
 
 namespace TopSystem
 {
-  Circle   CreateCircle(EDimension	 dimension,
+  shared_ptr<Circle>   CreateCircle(EDimension	 dimension,
 	const PathShaders& pathShaders)
   {
 	vector<GLfloat> container;
@@ -48,14 +48,18 @@ namespace TopSystem
 	indices.push_back(1);
 	indices.push_back(--i);
 
-	return Circle((GLuint)dimension,
-				  (GLuint)dimension,
-				  pathShaders,
-				  container,
-				  indices			);
+	auto cir = std::make_shared<Circle>
+	(
+	  (GLuint)dimension,
+	  (GLuint)dimension,
+	  pathShaders,
+	  container,
+	  indices
+	);
+	return cir;
   }
 
-  Triangle CreateTriangle(EDimension	 dimension,
+  shared_ptr<Triangle> CreateTriangle(EDimension	 dimension,
 	const PathShaders& pathShaders)
   {
 	const vector<GLfloat> container
@@ -72,14 +76,18 @@ namespace TopSystem
 	  indices.push_back(i);
 	}
 
-	return Triangle((GLuint)dimension,
-					(GLuint)dimension,
-					pathShaders,
-					container,
-					indices			  );
+	auto tri = std::make_shared<Triangle>
+	(
+	  (GLuint)dimension,
+	  (GLuint)dimension,
+	  pathShaders,
+	  container,
+	  indices
+	);
+	return tri;
   }
 
-  Rectangle CreateRectangle(EDimension   dimension,
+  shared_ptr<Rectangle> CreateRectangle(EDimension   dimension,
 	const PathShaders& pathShaders)
   {
 	std::vector<GLfloat> container
@@ -97,10 +105,14 @@ namespace TopSystem
 	  1, 2, 3
 	};
 
-	return Rectangle( (GLuint)dimension,
-					  (GLuint)dimension,
-					  pathShaders,
-					  container,
-					  indices			);
+	auto rec = std::make_shared<Rectangle>
+	(
+	  (GLuint)dimension,
+	  (GLuint)dimension,
+	  pathShaders,
+	  container,
+	  indices
+	);
+	return rec;
   }
 }

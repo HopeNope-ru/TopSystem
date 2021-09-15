@@ -1,6 +1,8 @@
 #pragma once
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <memory>
+
 #include "Defs.h"
 #include "PathShaders.h"
 
@@ -10,12 +12,14 @@ namespace TopSystem
   class Triangle;
   class Rectangle;
 
-  Circle	CreateCircle  (		EDimension	 dimension,
+  using std::shared_ptr;
+
+  shared_ptr<Circle>	CreateCircle  (		EDimension	 dimension,
 							const PathShaders& pathShaders);
 
-  Triangle	CreateTriangle(	EDimension	 dimension,
+  shared_ptr<Triangle>	CreateTriangle(	EDimension	 dimension,
 							const PathShaders& pathShaders);
 
-  Rectangle CreateRectangle(	  EDimension   dimension,
+  shared_ptr<Rectangle> CreateRectangle(	  EDimension   dimension,
 							const PathShaders& pathShaders);
 }
