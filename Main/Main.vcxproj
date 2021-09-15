@@ -164,8 +164,6 @@
     <ClInclude Include="CreateFunctions.h" />
     <ClInclude Include="Defs.h" />
     <ClInclude Include="ElemetBufferObject.h" />
-    <ClInclude Include="IDrawable.h" />
-    <ClInclude Include="Objects.h" />
     <ClInclude Include="PathShaders.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Shader.h" />

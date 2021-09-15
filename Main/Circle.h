@@ -6,13 +6,13 @@ namespace TopSystem
   class Circle : public Shape
   {
   public:
-	Circle(		  GLuint		   colorDimension,
-				  GLuint		   vertexDimension,
-			const PathShaders& pathShaders,
+	Circle(		  GLuint		  colorDimension,
+				  GLuint		  vertexDimension,
+			const PathShaders&	  pathShaders,
 				  vector<GLfloat> container,
-				  vector<GLint>   indices		   );
+				  vector<GLint>	  indices		   );
 	
-	virtual void Draw() override;
+	virtual void Draw() const override;
 
   };
 }

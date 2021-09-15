@@ -9,11 +9,10 @@
 #include "PathShaders.h"
 #include "Defs.h"
 #include "Objects.h"
-#include "IDrawable.h"
 
 namespace TopSystem
 {
-  class Shape : public Objects, public IDrawable
+  class Shape : public Objects
   {
   public:
 	Shape(		GLuint			colorDimension,
@@ -25,7 +24,7 @@ namespace TopSystem
 	virtual ~Shape() = 0
 	{ }
 
-	virtual void Draw() override = 0;
+	virtual void Draw() const = 0;
 
 	// Getter
 	const VBO& GetVertexBufferObject()  const { return _vbo; }

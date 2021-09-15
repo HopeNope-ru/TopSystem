@@ -18,6 +18,6 @@ namespace TopSystem
 			indices			 )
   { }
 
-	virtual void Draw() override;
+	virtual void Draw() const override;
   };
 }

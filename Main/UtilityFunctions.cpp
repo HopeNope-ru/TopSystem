@@ -4,6 +4,8 @@
 #include "Circle.h"
 #include "Triangle.h"
 #include "Rectangle.h"
+#include "IDrawable.h"
+#include "Shape.h"
 
 namespace TopSystem {
   GLFWwindow* Init()
@@ -36,7 +38,9 @@ namespace TopSystem {
 	return window;
   }
 
-  void RenderLoop(GLFWwindow* window, )
+  EShapes eShape = EShapes::Circle;
+
+  void RenderLoop(GLFWwindow* window, const std::vector<std::shared_ptr<Shape>>& shapes)
   {
 	while (!glfwWindowShouldClose(window))
 	{
@@ -44,6 +48,19 @@ namespace TopSystem {
 
 	  glClearColor(0.2f, 0.4f, 0.6f, 1.0f);
 	  glClear(GL_COLOR_BUFFER_BIT);
+
+	  switch (eShape)
+	  {
+	  case EShapes::Circle:
+		shapes[(GLint)eShape]->Draw();
+		break;
+	  case EShapes::Triangle:
+		shapes[(GLint)eShape]->Draw();
+		break;
+	  case EShapes::Rectangle:
+		shapes[(GLint)eShape]->Draw();
+		break;
+	  }
 
 	  glfwSwapBuffers(window);
 	  glfwPollEvents();
@@ -58,6 +75,12 @@ namespace TopSystem {
   void ProcessInput(GLFWwindow* window)
   {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-	  glfwSetWindowShouldClose(window, true);
+		glfwSetWindowShouldClose(window, true);
+	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
+		eShape = EShapes::Circle;
+	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
+		eShape = EShapes::Triangle;
+	if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS)
+		eShape = EShapes::Rectangle;
   }
 }

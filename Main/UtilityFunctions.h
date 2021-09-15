@@ -5,19 +5,21 @@
 
 #include "Defs.h"
 #include "PathShaders.h"
-#include "Objects.h"
 
 namespace TopSystem
 {
+  class Shape;
   class Circle;
   class Triangle;
   class Rectangle;
 
   GLFWwindow* Init();
 
-  void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
-  void ProcessInput			  (GLFWwindow* window);
-  void RenderLoop			  (GLFWwindow* window, std::shared_ptr<Objects> obj);
+  void FramebufferSizeCallback(	GLFWwindow* window, int width, int height);
+  void ProcessInput			  (	GLFWwindow* window);
+
+  void RenderLoop			  (		  GLFWwindow* window, 
+								const std::vector<std::shared_ptr<Shape>>& shapes);
 
   template<typename T>
   void GenerateBuffer(GLenum targetBuffer, GLuint& buffer, std::vector<T> container)

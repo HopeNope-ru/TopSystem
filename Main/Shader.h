@@ -29,6 +29,6 @@ namespace TopSystem {
 
 	~Shader() { glDeleteProgram(ID); }
 
-	void Use() { glUseProgram(ID); }
+	void Use() const { glUseProgram(ID); }
   };
 }

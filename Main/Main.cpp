@@ -36,18 +36,8 @@ int main()
   };
 
   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-  while (!glfwWindowShouldClose(window))
-  {
-    ProcessInput(window);
 
-    glClearColor(0.2f, 0.4f, 0.6f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-
-    shapes[1]->Draw();
-
-    glfwSwapBuffers(window);
-    glfwPollEvents();
-  }
+  RenderLoop(window, shapes);
 
   glfwTerminate();
   return 0;

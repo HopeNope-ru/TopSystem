@@ -14,7 +14,7 @@ namespace TopSystem
 			indices			 )
   { }
 
-  void Circle::Draw()
+  void Circle::Draw() const
   {
 	_shader.Use();
 	_vao.Bind();

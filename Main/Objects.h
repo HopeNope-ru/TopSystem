@@ -4,6 +4,7 @@ namespace TopSystem
 {
   class Objects 
   {
-
+  public:
+	Objects() {}
   };
 }

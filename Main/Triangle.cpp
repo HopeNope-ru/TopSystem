@@ -2,7 +2,7 @@
 
 namespace TopSystem
 {
-  void Triangle::Draw()
+  void Triangle::Draw() const
   {
 	_shader.Use();
 	_vao.Bind();

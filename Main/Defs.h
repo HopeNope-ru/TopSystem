@@ -16,6 +16,13 @@ namespace TopSystem
 	_3D
   };
 
+  enum class EShapes : GLbyte
+  {
+	Circle,
+	Triangle,
+	Rectangle
+  };
+
   const unsigned int SCR_WIDTH = 800;
   const unsigned int SCR_HEIGHT = 600;
 }
