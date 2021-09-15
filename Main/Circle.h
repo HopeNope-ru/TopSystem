@@ -12,6 +12,9 @@ namespace TopSystem
 				  vector<GLfloat> container,
 				  vector<GLint>	  indices		   );
 	
+	Circle() : Shape()
+	{ }
+
 	virtual void Draw() const override;
 
   };

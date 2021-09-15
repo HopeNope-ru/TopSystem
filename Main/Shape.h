@@ -21,6 +21,9 @@ namespace TopSystem
 				vector<GLfloat> container,
 				vector<GLint>	indices			);
 
+	Shape()
+	{ }
+
 	virtual ~Shape() = 0
 	{ }
 

@@ -15,6 +15,7 @@ namespace TopSystem
   using std::shared_ptr;
 
   shared_ptr<Circle>	CreateCircle	(		EDimension	 dimension,
+												GLuint		 amountOfPoints,
 										  const PathShaders& pathShaders);
 
   shared_ptr<Triangle>	CreateTriangle	(		EDimension	 dimension,

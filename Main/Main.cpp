@@ -24,13 +24,13 @@ int main()
     return -1;
   }
 
-  string vertexPath = "Shaders/VertexShader.txt";
-  string fragmentPath = "Shaders/FragmentShader.txt";
+  string      vertexPath    = "Shaders/VertexShader.txt";
+  string      fragmentPath  = "Shaders/FragmentShader.txt";
   PathShaders pathShaders(vertexPath, fragmentPath);
 
   vector<spShape> shapes
   {
-    CreateCircle    (EDimension::_3D, pathShaders),
+    CreateCircle    (EDimension::_3D, 20, pathShaders),
     CreateTriangle  (EDimension::_3D, pathShaders),
     CreateRectangle (EDimension::_3D, pathShaders)
   };

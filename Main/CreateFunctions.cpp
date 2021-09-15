@@ -6,7 +6,8 @@
 namespace TopSystem
 {
   shared_ptr<Circle>   CreateCircle		(		EDimension	 dimension,
-										  const PathShaders& pathShaders)
+												GLuint		 amountOfPoints,
+										  const PathShaders& pathShaders	)
   {
 	vector<GLfloat> container;
 	vector<GLint>	indices;
@@ -22,19 +23,20 @@ namespace TopSystem
 	container.push_back(0.0f);
 	AddColorToVertex(0.0f, 1.0f, 0.0f);
 
-	int amountOfPoint = 0;
-	for (int angle = 45, i = 1; angle <= 360; angle += 45, i++) {
+	// Angle that need to rotate points
+	GLuint rotAngle = 360 / amountOfPoints;
+
+	for (int angle = rotAngle, i = 1; angle <= 360; angle += rotAngle, i++) {
 	  float radian = angle * (3.14f / 180.0f);
 	  container.push_back(std::cos(radian) / 2);
 	  container.push_back(std::sin(radian) / 2);
 	  container.push_back(0.0f);
-	  amountOfPoint++;
 
-	  AddColorToVertex(0.0f, 0.0f, 1.0f);
+	  AddColorToVertex(1.0f, 0.0f, 0.0f);
 	}
 
 	int i = 2;
-	while (i <= amountOfPoint)
+	while (i <= amountOfPoints)
 	{
 	  indices.push_back(0);
 	  indices.push_back(i - 1);
