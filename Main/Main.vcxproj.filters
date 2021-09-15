@@ -42,6 +42,9 @@
     <ClCompile Include="Rectangle.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UtilityFunctions.h">
@@ -66,6 +69,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Defs.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

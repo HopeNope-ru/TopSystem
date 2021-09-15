@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GettingStartOpenGL\GettingStartOpenGL\glad.c" />
+    <ClCompile Include="Circle.cpp" />
     <ClCompile Include="ElemetBufferObject.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Rectangle.cpp" />
@@ -157,6 +158,7 @@
     <ClCompile Include="VertexBufferObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Circle.h" />
     <ClInclude Include="Defs.h" />
     <ClInclude Include="ElemetBufferObject.h" />
     <ClInclude Include="Rectangle.h" />
