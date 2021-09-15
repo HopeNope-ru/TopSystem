@@ -1,5 +1,7 @@
 #include "UtilityFunctions.h"
 #include "Shader.h"
+#include "PathShaders.h"
+#include "Circle.h"
 
 namespace TopSystem {
   GLFWwindow* Init()
@@ -61,7 +63,7 @@ namespace TopSystem {
 	  glfwSetWindowShouldClose(window, true);
   }
 
-  void CreateCircle3D  (vector<GLfloat>& container, vector<GLint>& indices)
+  Circle CreateCircle(const PathShaders& pathShaders, vector<GLfloat>& container, vector<GLint>& indices)
   {
 	auto AddColorToVertex = [&](GLfloat R, GLfloat G, GLfloat B)
 	{
@@ -100,9 +102,11 @@ namespace TopSystem {
 	indices.push_back(0);
 	indices.push_back(1);
 	indices.push_back(--i);
+
+	return Circle(3, 3, pathShaders.GetVertexFilePath(), pathShaders.GetFragmentFilePath(), container, indices);
   }
   
-  void CreateTriangle3D(const GLfloat*		   triangleVertex,
+  void CreateTriangle(const GLfloat*		   triangleVertex,
 							  GLsizei		   sizeTriangleVertex,
 							  vector<GLfloat>& container, 
 							  vector<GLint>&   indices			 ) 

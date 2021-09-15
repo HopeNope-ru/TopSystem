@@ -6,15 +6,17 @@
 
 namespace TopSystem
 {
+  class Circle;
+
   GLFWwindow* Init();
 
   void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
   void ProcessInput			  (GLFWwindow* window);
   void RenderLoop			  (GLFWwindow* window);
 
-  void CreateCircle3D  (EDimension dimension, const PathShaders& pathShader, vector<GLfloat>& container, vector<GLint>& indices);
+  Circle CreateCircle(const PathShaders& pathShaders, vector<GLfloat>& container, vector<GLint>& indices);
 
-  void CreateTriangle3D(const GLfloat*		   triangleVertex,
+  void CreateTriangle(const GLfloat*		   triangleVertex,
 							  GLsizei		   sizeTriangleVertex,
 							  vector<GLfloat>& container, 
 							  vector<GLint>&   indices			 );

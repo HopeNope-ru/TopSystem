@@ -11,6 +11,7 @@
 #include "Rectangle.h"
 #include "Circle.h"
 #include "Triangle.h"
+#include "PathShaders.h"
 
 using namespace TopSystem;
 
@@ -37,18 +38,19 @@ int main()
     1, 2, 3
   };
 
+  string vertexPath = "Shaders/VertexShader.txt";
+  string fragmentPath = "Shaders/FragmentShader.txt";
+
   std::vector<GLfloat> circleCont;
   std::vector<GLint>   circleInd;
-  CreateCircle(circleCont, circleInd);
+  Circle&& circle = CreateCircle(PathShaders(vertexPath, fragmentPath), circleCont, circleInd);
 
   std::vector<GLfloat> vertexTriangle;
   std::vector<GLint>   indicesTriangle;
   CreateTriangle(triangleVertex, sizeof(triangleVertex) / sizeof(GLfloat), vertexTriangle, indicesTriangle);
-  string vertexPath = "Shaders/VertexShader.txt";
-  string fragmentPath = "Shaders/FragmentShader.txt";
 
   Rectangle rectangle(3, 3, vertexPath, fragmentPath, container, indices);
-  Circle    circle(3, 3, vertexPath, fragmentPath, circleCont, circleInd);
+  //Circle    circle(3, 3, vertexPath, fragmentPath, circleCont, circleInd);
   Triangle  triangle(3, 3, vertexPath, fragmentPath, vertexTriangle, indicesTriangle);
 
   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -60,8 +62,8 @@ int main()
     glClear(GL_COLOR_BUFFER_BIT);
 
     //rectangle.Draw();
-    //circle.Draw();
-    triangle.Draw();
+    circle.Draw();
+    //triangle.Draw();
 
     glfwSwapBuffers(window);
     glfwPollEvents();
