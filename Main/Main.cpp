@@ -1,11 +1,17 @@
 #pragma once
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
+#include "Defs.h"
 #include "Shader.h"
 #include "UtilityFunctions.h"
 #include "VertexArrayObject.h"
 #include "VertexBufferObject.h"
 #include "ElemetBufferObject.h"
+#include "Rectangle.h"
+#include "Circle.h"
+#include "Triangle.h"
+#include "PathShaders.h"
 
 using namespace TopSystem;
 
@@ -32,13 +38,13 @@ int main()
     1, 2, 3
   };
 
-  VBO vbo(container);
-  EBO ebo(indices);
-  VAO vao(3, 3, vbo, ebo);
+  string vertexPath = "Shaders/VertexShader.txt";
+  string fragmentPath = "Shaders/FragmentShader.txt";
+  PathShaders pathShaders(vertexPath, fragmentPath);
 
+  Circle&& circle = CreateCircle(EDimension::_3D, pathShaders);
 
-  Shader shader("Shaders/VertexShader.txt", "Shaders/FragmentShader.txt");
-
+  glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
   while (!glfwWindowShouldClose(window))
   {
     ProcessInput(window);
@@ -46,9 +52,9 @@ int main()
     glClearColor(0.2f, 0.4f, 0.6f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    shader.Use();
-    vao.Bind();
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    //rectangle.Draw();
+    circle.Draw();
+    //triangle.Draw();
 
     glfwSwapBuffers(window);
     glfwPollEvents();

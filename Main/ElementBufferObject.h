@@ -2,7 +2,6 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <vector>
-#include "Defs.h"
 #include "UtilityFunctions.h"
 
 namespace TopSystem

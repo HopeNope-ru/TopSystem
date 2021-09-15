@@ -147,16 +147,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GettingStartOpenGL\GettingStartOpenGL\glad.c" />
+    <ClCompile Include="Circle.cpp" />
     <ClCompile Include="ElemetBufferObject.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="UtilityFunctions.cpp" />
     <ClCompile Include="VertexArrayObject.cpp" />
     <ClCompile Include="VertexBufferObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Circle.h" />
+    <ClInclude Include="Defs.h" />
     <ClInclude Include="ElemetBufferObject.h" />
+    <ClInclude Include="PathShaders.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="Shape.h" />
+    <ClInclude Include="Triangle.h" />
     <ClInclude Include="UtilityFunctions.h" />
     <ClInclude Include="VertexArrayObject.h" />
     <ClInclude Include="VertexBufferObject.h" />

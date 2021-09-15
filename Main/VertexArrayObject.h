@@ -14,7 +14,10 @@ namespace TopSystem
 					  const VBO& vbo,
 					  const EBO& ebo);
 
-	void   Bind()			{ glBindVertexArray(_vertexArray); }
+	VertexArrayObject() : _vertexArray(0)
+	{ }
+
+	void   Bind() const		{ glBindVertexArray(_vertexArray); }
 	void   UnBind()			{ glBindVertexArray(0); }
 	GLuint GetVertexArray() { return _vertexArray; }
 
