@@ -60,4 +60,17 @@ namespace TopSystem {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 	  glfwSetWindowShouldClose(window, true);
   }
+
+  void CreateCircle(vector<GLfloat>& container)
+  {
+	container.push_back(0.0f);
+	container.push_back(0.0f);
+
+	for (int angle = 45, i = 1; angle <= 360; angle += 45, i++) {
+	  float radian = angle * (3.14f / 180.0f);
+	  std::cout << radian << ' ';
+	  container.push_back(std::cos(radian) / 2);
+	  container.push_back(std::sin(radian) / 2);
+	}
+  }
 }

@@ -34,9 +34,6 @@ int main()
     0, 1, 3,
     1, 2, 3
   };
-  VBO _vbo(container);
-  EBO _ebo(indices);
-  VAO _vao(3, 3, _vbo, _ebo);
 
   string vertexPath = "Shaders/VertexShader.txt";
   string fragmentPath = "Shaders/FragmentShader.txt";
