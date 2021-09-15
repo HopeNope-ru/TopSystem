@@ -52,9 +52,7 @@ int main()
     glClearColor(0.2f, 0.4f, 0.6f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    //rectangle.Draw();
     circle.Draw();
-    //triangle.Draw();
 
     glfwSwapBuffers(window);
     glfwPollEvents();

@@ -38,16 +38,12 @@ namespace TopSystem {
 
   void RenderLoop(GLFWwindow* window)
   {
-	Shader shader("Shaders/VertexShader.txt", "Shaders/FragmentShader.txt");
-
 	while (!glfwWindowShouldClose(window))
 	{
 	  ProcessInput(window);
 
 	  glClearColor(0.2f, 0.4f, 0.6f, 1.0f);
 	  glClear(GL_COLOR_BUFFER_BIT);
-
-	  shader.Use();
 
 	  glfwSwapBuffers(window);
 	  glfwPollEvents();
@@ -111,8 +107,7 @@ namespace TopSystem {
 
 	return Circle((GLuint)dimension, 
 				  (GLuint)dimension, 
-				  pathShaders.GetVertexFilePath(), 
-				  pathShaders.GetFragmentFilePath(), 
+				  pathShaders, 
 				  container, 
 				  indices			);
   }
@@ -136,8 +131,7 @@ namespace TopSystem {
 
 	return Triangle((GLuint)dimension, 
 					(GLuint)dimension, 
-					"", 
-					"", 
+					pathShaders,
 					container, 
 					indices			 );
   }
@@ -162,8 +156,7 @@ namespace TopSystem {
 
 	return Rectangle((GLuint)dimension, 
 					 (GLuint)dimension, 
-					 "", 
-					 "", 
+					 pathShaders,
 					 container, 
 					 indices		  );
   }

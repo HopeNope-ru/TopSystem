@@ -6,6 +6,7 @@
 #include "ElemetBufferObject.h"
 #include "UtilityFunctions.h"
 #include "Shader.h"
+#include "PathShaders.h"
 #include "Defs.h"
 
 namespace TopSystem
@@ -13,12 +14,11 @@ namespace TopSystem
   class Shape
   {
   public:
-	Shape(GLuint		  colorDimension,
-		  GLuint		  vertexDimension,
-		  string		  vertexFilePath,
-		  string		  fragmentFilePath,
-		  vector<GLfloat> container,
-		  vector<GLint>	  indices		 );
+	Shape(		GLuint			colorDimension,
+				GLuint			vertexDimension,
+		  const PathShaders&	pathShaders,
+				vector<GLfloat> container,
+				vector<GLint>	indices			);
 
 	virtual ~Shape() = 0
 	{ }
