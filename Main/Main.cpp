@@ -13,9 +13,11 @@
 #include "Circle.h"
 #include "Triangle.h"
 #include "PathShaders.h"
+#include "IDrawable.h"
 
 using namespace TopSystem;
-using spShape = shared_ptr<Shape>;
+using spIDrawable = shared_ptr<IDrawable>;
+
 int main()
 {
   GLFWwindow* window = Init();
@@ -28,7 +30,7 @@ int main()
   string      fragmentPath  = "Shaders/FragmentShader.txt";
   PathShaders pathShaders(vertexPath, fragmentPath);
 
-  vector<spShape> shapes
+  vector<spIDrawable> shapes
   {
     CreateCircle    (EDimension::_3D, 20, pathShaders),
     CreateTriangle  (EDimension::_3D, pathShaders),

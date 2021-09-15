@@ -31,6 +31,9 @@
     <Filter Include="Файлы заголовков\OpenGL">
       <UniqueIdentifier>{38897e4c-80cf-44d8-b7fd-f91d5eac8e27}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Interface">
+      <UniqueIdentifier>{e93ef565-32a5-4ac8-84ee-6480a95ba758}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -106,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="Defs.h">
       <Filter>Файлы заголовков\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="IDrawable.h">
+      <Filter>Файлы заголовков\Interface</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

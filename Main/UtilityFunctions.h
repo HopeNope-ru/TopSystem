@@ -5,6 +5,7 @@
 
 #include "Defs.h"
 #include "PathShaders.h"
+#include "IDrawable.h"
 
 namespace TopSystem
 {
@@ -19,7 +20,7 @@ namespace TopSystem
   void ProcessInput			  (	GLFWwindow* window);
 
   void RenderLoop			  (		  GLFWwindow* window, 
-								const std::vector<std::shared_ptr<Shape>>& shapes);
+								const std::vector<std::shared_ptr<IDrawable>>& shapes);
 
   template<typename T>
   void GenerateBuffer(GLenum targetBuffer, GLuint& buffer, std::vector<T> container)

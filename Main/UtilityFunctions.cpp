@@ -4,7 +4,6 @@
 #include "Circle.h"
 #include "Triangle.h"
 #include "Rectangle.h"
-#include "IDrawable.h"
 #include "Shape.h"
 
 namespace TopSystem {
@@ -40,7 +39,7 @@ namespace TopSystem {
 
   EShapes eShape = EShapes::Circle;
 
-  void RenderLoop(GLFWwindow* window, const std::vector<std::shared_ptr<Shape>>& shapes)
+  void RenderLoop(GLFWwindow* window, const std::vector<std::shared_ptr<IDrawable>>& shapes)
   {
 	while (!glfwWindowShouldClose(window))
 	{
