@@ -162,6 +162,7 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Defs.h" />
     <ClInclude Include="ElemetBufferObject.h" />
+    <ClInclude Include="PathShaders.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Shape.h" />

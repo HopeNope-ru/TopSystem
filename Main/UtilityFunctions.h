@@ -2,6 +2,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "Defs.h"
+#include "PathShaders.h"
 
 namespace TopSystem
 {
@@ -11,12 +12,12 @@ namespace TopSystem
   void ProcessInput			  (GLFWwindow* window);
   void RenderLoop			  (GLFWwindow* window);
 
-  void CreateCircle	 (vector<GLfloat>& container, vector<GLint>& indices);
+  void CreateCircle3D  (EDimension dimension, const PathShaders& pathShader, vector<GLfloat>& container, vector<GLint>& indices);
 
-  void CreateTriangle(const GLfloat*		 triangleVertex,
-							GLsizei			 sizeTriangleVertex,
-							vector<GLfloat>& container, 
-							vector<GLint>&   indices		 );
+  void CreateTriangle3D(const GLfloat*		   triangleVertex,
+							  GLsizei		   sizeTriangleVertex,
+							  vector<GLfloat>& container, 
+							  vector<GLint>&   indices			 );
 
   template<typename T>
   void GenerateBuffer(GLenum targetBuffer, GLuint& buffer, std::vector<T> container)

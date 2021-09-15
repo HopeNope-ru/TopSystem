@@ -61,7 +61,7 @@ namespace TopSystem {
 	  glfwSetWindowShouldClose(window, true);
   }
 
-  void CreateCircle	 (vector<GLfloat>& container, vector<GLint>& indices)
+  void CreateCircle3D  (vector<GLfloat>& container, vector<GLint>& indices)
   {
 	auto AddColorToVertex = [&](GLfloat R, GLfloat G, GLfloat B)
 	{
@@ -102,10 +102,10 @@ namespace TopSystem {
 	indices.push_back(--i);
   }
   
-  void CreateTriangle(const GLfloat*		 triangleVertex,
-							GLsizei			 sizeTriangleVertex,
-							vector<GLfloat>& container, 
-							vector<GLint>&	 indices		) 
+  void CreateTriangle3D(const GLfloat*		   triangleVertex,
+							  GLsizei		   sizeTriangleVertex,
+							  vector<GLfloat>& container, 
+							  vector<GLint>&   indices			 ) 
   {
 	for (int i = 0; i < sizeTriangleVertex; ++i) 
 	{
