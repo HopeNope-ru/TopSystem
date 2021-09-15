@@ -9,6 +9,7 @@
 #include "VertexBufferObject.h"
 #include "ElemetBufferObject.h"
 #include "Rectangle.h"
+#include "Circle.h"
 
 using namespace TopSystem;
 
@@ -35,10 +36,17 @@ int main()
     1, 2, 3
   };
 
+  std::vector<GLfloat> circleCont;
+  std::vector<GLint>   circleInd;
+  CreateCircle(circleCont, circleInd);
+
   string vertexPath = "Shaders/VertexShader.txt";
   string fragmentPath = "Shaders/FragmentShader.txt";
+
   Rectangle rectangle(3, 3, vertexPath, fragmentPath, container, indices);
-  
+  Circle    circle(3, 3, vertexPath, fragmentPath, circleCont, circleInd);
+
+  glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
   while (!glfwWindowShouldClose(window))
   {
     ProcessInput(window);
@@ -46,7 +54,8 @@ int main()
     glClearColor(0.2f, 0.4f, 0.6f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    rectangle.Draw();
+    //rectangle.Draw();
+    circle.Draw();
 
     glfwSwapBuffers(window);
     glfwPollEvents();

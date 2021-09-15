@@ -11,7 +11,7 @@ namespace TopSystem
 		   string		   vertexFilePath,
 		   string		   fragmentFilePath,
 		   vector<GLfloat> container,
-		   vector<GLint>   indices);
+		   vector<GLint>   indices		   );
 	
 	virtual void Draw() override;
 

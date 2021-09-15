@@ -61,16 +61,44 @@ namespace TopSystem {
 	  glfwSetWindowShouldClose(window, true);
   }
 
-  void CreateCircle(vector<GLfloat>& container)
+  void CreateCircle(vector<GLfloat>& container, vector<GLint>& indices)
   {
-	container.push_back(0.0f);
-	container.push_back(0.0f);
+	auto AddColorToVertex = [&](GLfloat R, GLfloat G, GLfloat B)
+	{
+	  container.push_back(R);
+	  container.push_back(G);
+	  container.push_back(B);
+	};
 
+	container.push_back(0.0f);
+	container.push_back(0.0f);
+	container.push_back(0.0f);
+	AddColorToVertex(0.0f, 1.0f, 0.0f);
+
+	int amountOfPoint = 0;
 	for (int angle = 45, i = 1; angle <= 360; angle += 45, i++) {
 	  float radian = angle * (3.14f / 180.0f);
-	  std::cout << radian << ' ';
 	  container.push_back(std::cos(radian) / 2);
 	  container.push_back(std::sin(radian) / 2);
+	  container.push_back(0.0f);
+	  amountOfPoint++;
+
+	  AddColorToVertex(0.0f, 0.0f, 1.0f);
 	}
+
+	int i = 2;
+	while(i <= amountOfPoint)
+	{
+	  indices.push_back(0);
+	  indices.push_back(i - 1);
+	  indices.push_back(i);
+	  ++i;
+	}
+
+	// Уменьшаем на 1, что бы вернуться к прошлому значению, ....
+	// ....которое свяжется в цепочку индексов
+	indices.push_back(0);
+	indices.push_back(1);
+	indices.push_back(--i);
   }
 }

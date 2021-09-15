@@ -11,7 +11,7 @@ namespace TopSystem
   void ProcessInput(GLFWwindow* window);
   void RenderLoop(GLFWwindow* window);
 
-  void CreateCircle(vector<GLfloat>& container);
+  void CreateCircle(vector<GLfloat>& container, vector<GLint>& indices);
 
   template<typename T>
   void GenerateBuffer(GLenum targetBuffer, GLuint& buffer, std::vector<T> container)
